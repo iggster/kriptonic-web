@@ -1,0 +1,90 @@
+
+<div  class="container" FxLayout="column" *ngIf="userProfile">
+
+  <div>
+   <mat-form-field class="mat-form-field" style="width:90%;" >
+     <input matInput placeholder="User Profile Description:" value={{userProfile.profileDescription}}
+         [(ngModel)]="userProfile.profileDescription" name="profileDescription" #decription="ngModel">
+         <mat-error>This field is required</mat-error>
+   </mat-form-field>
+ </div>
+ <div FxLayout="row">
+   <div FxLayout="column" fxFlex="60%">
+     <div>
+        <mat-form-field class="mat-form-field" style="width: 74%;">
+            <input matInput placeholder="Id. Number:" value={{userProfile.id}} readonly="true">
+        </mat-form-field>
+     </div>
+     <div>
+        <mat-form-field class="mat-form-field" style="width: 74%;  transform: perspective(1px);">
+            <input matInput placeholder="First Name:" value={{userProfile.firstName}}
+             [(ngModel)]="userProfile.firstName" name="firstName" #firstName="ngModel" required>
+             <mat-error>This field is required</mat-error>
+        </mat-form-field>
+     </div>
+     <div>
+        <mat-form-field class="mat-form-field" style="width: 74%; transform: perspective(1px);">
+            <input matInput placeholder="Last Name:" value={{userProfile.lastName}}
+             [(ngModel)]="userProfile.lastName" name="lastName" #lastName="ngModel" required>
+             <mat-error>This field is required</mat-error>
+        </mat-form-field>
+     </div>
+   </div>
+     <div class="qr-container" fxFlex="25%" FxFlex="qr-container">
+        <span class="qr-caption">Qr Code URL</span>
+        <img class="qrcode-image" src="data:image/png;base64,{{userProfile.qrcode}}">
+     </div>
+   </div>
+  <div>
+    <mat-form-field class="mat-form-field" style="width:45%; transform: perspective(1px);" >
+      <input matInput placeholder="Phone 1:" value={{userProfile.phone1}}
+          [(ngModel)]="userProfile.phone1" name="phone1" #phone1="ngModel" required>
+         <mat-error>This field is required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" style="width:45%; transform: perspective(1px);" >
+      <input matInput placeholder="Phone 2:" value={{userProfile.phone2}}
+          [(ngModel)]="userProfile.phone2" name="phone2" #phone2="ngModel">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="mat-form-field" style="width:45%;" >
+      <input matInput placeholder="Address:" value={{userProfile.address}}
+          [(ngModel)]="userProfile.address" name="address" #address="ngModel" required>
+         <mat-error>This field is required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" style="width:45%;" >
+      <input matInput placeholder="City:" value={{userProfile.city}}
+          [(ngModel)]="userProfile.city" name="city" #city="ngModel">
+          <mat-error>This field is required</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="mat-form-field" style="width:45%; transform: perspective(1px);" >
+      <input matInput placeholder="Province" value={{userProfile.province}}
+          [(ngModel)]="userProfile.province" name="province" #province="ngModel" required>
+         <mat-error>This field is required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" style="width:45%; transform: perspective(1px);" >
+      <input matInput placeholder="Country" value={{userProfile.country}}
+          [(ngModel)]="userProfile.country" name="country" #country="ngModel">
+          <mat-error>This field is required</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="mat-form-field" style="width:45%;" >
+      <input matInput placeholder="Postal Code" value={{userProfile.zip}}
+          [(ngModel)]="userProfile.zip" >
+          <mat-error>This field is required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" style="width:45%;" >
+      <input matInput placeholder="Date of Birth" [ngModel]="userProfile.dob | date:'yyyy-MM-dd'"
+             (ngModelChange)="userProfile.dob = $event" type="date" name="dob"/>
+          <mat-error>This field is required</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="mat-form-field" style="width:90%;">
+     <input matInput placeholder="Hash" value={{userProfile.hash}} readonly/>
+   </mat-form-field>
+  </div>
+ </div>

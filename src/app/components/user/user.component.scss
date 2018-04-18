@@ -1,0 +1,102 @@
+@import '../../../custom-theme.scss';
+
+@mixin my-custom-theme($custom-theme) {
+
+  $primary: map-get($custom-theme, primary);
+  $warn: map-get($custom-theme, warn);
+  $background: map-get($custom-theme, accent);
+
+}
+
+.container {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+
+.form-container {
+  margin-top: 10px;
+}
+//Button group.
+.group {
+    font-size: 16px;
+    margin: 20px 0;
+    padding: 3px 15px 3px 15px;
+    color: whitesmoke;
+    background-color: mat-color($primary);
+    text-transform: none;
+    font-weight: 400;
+    min-width:100px;
+}
+
+.mat-button.left {
+    border-radius: 10px 0 0 10px;
+}
+
+.mat-button.middle {
+    border-radius: 0;
+    border-left: 1px solid rgba(230, 230, 230, 0.96);
+    border-right: 1px solid rgba(230, 230, 230, 0.96);
+}
+
+.mat-button.right {
+    border-radius: 0 10px 10px 0;
+}
+
+.mat-button:not([disabled]):hover {
+    background-color: rgba(193, 193, 193, 0.96);
+    color: rgba(44, 65, 164, 0.96);
+    transition: 0.3s;
+}
+
+/* User list private CSS styles */
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.users {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+  height: 30em;
+  overflow: auto;
+}
+.user-list li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+
+.user-list li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+.user-list li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.user-list .text {
+  position: relative;
+  top: -3px;
+}
+.user-list .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: mat-color($primary);
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}

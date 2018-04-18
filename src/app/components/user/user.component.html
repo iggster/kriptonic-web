@@ -1,0 +1,34 @@
+<div class="container" >
+ <div *ngIf="selectedUser" class="form-container">
+
+   <div class="center-panel" FxLayout="row" fxLayoutAlign="center">
+     <div FxLayout="column">
+      <div  class="user-detail-container" fxFlex="90%">
+      <app-user-detail [user]="selectedUser"></app-user-detail>
+
+      <section class="button-group" layout="row" layout-align="center center">
+        <button mat-button class="group left">New</button>
+        <button mat-button class="group middle" (click)="deleteUserById()">Delete</button>
+        <button mat-button class="group middle" (click)="saveUser()">Save</button>
+        <button mat-button class="group right">Refresh</button>
+      </section>
+    </div>
+  </div>
+
+    <div class="user-profile" fxFlex="35%" >
+      <app-user-profile [userProfile]="selectedUser.userProfiles[0]"></app-user-profile>
+    </div>
+
+  <div class="user-list" *ngIf="users" fxFlex="20%">
+    <span>Users</span>
+      <ul class="usersList">
+        <li [class.selected]="user === selectedUser" *ngFor="let user of users"
+        (click)="onSelectUser(user)">  <span class="badge">*</span> {{user.name}}
+        </li>
+      </ul>
+   </div>
+<!--Main FxLayout row.-->
+   </div>
+
+ </div>
+</div>

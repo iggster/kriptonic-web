@@ -1,0 +1,9 @@
+@charset "UTF-8";
+@import '~@angular/material/theming';
+@include mat-core();
+
+  $primary: mat-palette($mat-orange, 800);
+  $background: mat-palette($mat-grey, 100);
+  $warn:    mat-palette($mat-red, 600);
+  $custom-theme: mat-dark-theme($primary, $background, $warn);
+@include angular-material-theme($custom-theme);

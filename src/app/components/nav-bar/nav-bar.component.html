@@ -1,0 +1,93 @@
+<div FxFlex="mat-toolbar-main-wrapper" FxLayout="column">
+ <mat-toolbar FxFlex="toolbar">
+   <h3>Electro Biz</h3>
+  <ul>
+    <li *ngFor="let menuItem of navBarMenuItemArray; let i = index">
+       <a attr.aria-label="{{menuItem?.label}}" class="nav-bar-button mat-button"
+         (click)="navMenuItemSelected()"      attr.tabindex="{{i}}" aria-disabled="false" >
+        <span class="mat-button-wrapper">
+         <!--  <img _ngcontent-c1="" alt="angular" class="docs-angular-logo" src="../../../assets/img/homepage/angular-white-transparent.svg">
+         -->
+          <span>{{menuItem.label}}{{i}}</span>
+        </span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="menu-container" FxLayout="row">
+
+      <button class="icon-button" mat-icon-button [matMenuTriggerFor]="userMenu" style="width: 100px;">
+          <mat-icon class="sn-item">
+            <i class="material-icons">account_box</i>
+          </mat-icon>
+          <span> Users</span>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="subMenuUser">
+          <mat-icon class="sn-item">
+            <i class="material-icons">account_box</i>
+          </mat-icon>
+            <span>Account</span>
+        </button>
+        <button mat-menu-item>System settings</button>
+      </mat-menu>
+      <mat-menu #subMenuUser="matMenu">
+        <button mat-menu-item  (click)="setCurrentSelection('User > User Details')">User</button>
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item routerLink="/app-user" (click)="setCurrentSelection('User > Administrate')">Administrate</button>
+        <button mat-menu-item routerLink="/app-trials" (click)="setCurrentSelection('Test Page')" >Test</button>
+      </mat-menu>
+
+<!-- Accounts Menu -->
+      <button class="icon-button" mat-icon-button [matMenuTriggerFor]="accountsMenu" style="width: 100px;">
+          <mat-icon class="sn-item">
+            <i class="material-icons">account_box</i>
+          </mat-icon>
+          <span>Accounts</span>
+      </button>
+      <mat-menu #accountsMenu="matMenu">
+        <button mat-menu-item mat-menu-item [matMenuTriggerFor]="subMenuHashGraph">
+          <mat-icon class="sn-item">
+            <i class="material-icons">account_box</i>
+          </mat-icon>
+          <span>Hash Graph</span>
+        </button>
+        <button mat-menu-item mat-menu-item [matMenuTriggerFor]="subMenuPurchases">
+          <mat-icon class="sn-item">
+            <i class="material-icons">account_box</i>
+          </mat-icon>
+          <span>Purchases</span>
+        </button>
+        <button mat-menu-item mat-menu-item [matMenuTriggerFor]="subMenuQrCode">
+          <mat-icon class="sn-item">
+            <i class="material-icons">account_box</i>
+          </mat-icon>
+          <span>Qr Codes</span>
+        </button>
+      </mat-menu>
+
+     <mat-menu #subMenuHashGraph="matMenu">
+       <button mat-menu-item>Option 1</button>
+       <button mat-menu-item>Option 2</button>
+       <button mat-menu-item>Option 3</button>
+     </mat-menu>
+     <mat-menu #subMenuPurchases="matMenu">
+       <button mat-menu-item>Option 1</button>
+       <button mat-menu-item>Option 2</button>
+       <button mat-menu-item>Option 3</button>
+     </mat-menu>
+     <mat-menu #subMenuQrCode="matMenu">
+       <button mat-menu-item>Option 1</button>
+       <button mat-menu-item>Option 2</button>
+       <button mat-menu-item>Option 3</button>
+     </mat-menu>
+
+<!-- End Accounts Menu -->
+
+    
+    </div>
+   </mat-toolbar>
+ </div>
+<div class="orange-block" FxFlex="color-block">
+  <h2 class="titleCurrentSelection">{{currentSelection}}</h2>
+</div>

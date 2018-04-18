@@ -1,0 +1,50 @@
+@import '../../../custom-theme.scss';
+
+@mixin custom-theme($custom-theme) {
+
+  $primary: map-get($custom-theme, primary);
+  $warn: map-get($custom-theme, warn);
+  $background: map-get($custom-theme, accent);
+
+}
+
+.container {
+  margin: 0px;
+  padding: 0px;
+}
+
+mat-sidenav-container[fxFlex="sidenav-container"] {
+	position: fixed;
+	top: 200px;
+	margin-left: 10px;
+  height:410px;
+  width: 200px;
+  background-color:  mat-color($background);
+   -webkit-box-shadow:0 1px 1px -1px rgba(0,0,0,.2),0 1px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+  box-shadow:0 1px 2px -1px rgba(0,0,0,.2),0 1px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+mat-sidenav-content .mat-side-nav-title {
+	  font-size: 18px;
+    font-weight: bold;
+    color: #8b8b8b;
+    padding-left: 35px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    display:block;
+    border-bottom: 1px solid #bcbcbc;
+ }
+
+a {
+   text-decoration: none;
+   color: #8b8b8b;
+}
+
+
+ul {
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 400;
+  padding-top: 0px;
+  list-style: none;
+}

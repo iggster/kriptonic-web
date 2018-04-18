@@ -1,0 +1,76 @@
+<div  class="container" FxLayout="column" *ngIf="user">
+ <div FxLayout="row" >
+   <div FxLayout="column" fxFlex="60%">
+     <div>
+        <mat-form-field class="mat-form-field" style="width: 74%;">
+            <input matInput placeholder="Id. Number" value={{user.id}} readonly="true">
+        </mat-form-field>
+   </div>
+   <div>
+        <mat-form-field class="mat-form-field" style="width: 74%;">
+          <mat-select matInput placeholder="Account Status"  value={{user.accountActivated}}
+                 [(ngModel)]="user.accountActivated"  name="accountActivated" #accountActivated="ngModel">
+             <mat-option value="true">Activated</mat-option>
+             <mat-option value="false">Deactivated</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+      <!-- The style transform: perspective used as a hack because udnerline -->
+      <!-- does not render correctly.                                        -->
+    <mat-form-field class="mat-form-field" style="width: 74%; transform: perspective(1px);">
+      <input matInput placeholder="Name" maxLength="65" value={{user.name}}
+          [(ngModel)]="user.name" name="name" #name="ngModel" required>
+       <mat-error>This field is required</mat-error>
+    </mat-form-field>
+   </div>
+   </div>
+   <div class="qr-container" fxFlex="25%" FxFlex="qr-container">
+        <span class="qr-caption">Qr Code URL</span>
+        <img class="qrcode-image" src="data:image/png;base64,{{user.qrcode}}">
+   </div>
+ </div>
+ <div>
+   <mat-form-field class="mat-form-field" style="width:45%;" >
+     <input matInput placeholder="Password" value={{user.password}}
+         [(ngModel)]="user.password" name="password" #password="ngModel" required>
+        <mat-error>This field is required</mat-error>
+   </mat-form-field>
+   <mat-form-field class="mat-form-field" style="width:45%;"> <!-- Third row of the form. -->
+     <mat-select matInput placeholder="Role" value={{user.role}}
+         [(ngModel)]="user.role" name="role" #name="ngModel" required>
+         <mat-option value="admin">Administrator</mat-option>
+         <mat-option value="customer">Customer</mat-option>
+         <mat-option value="root">Root</mat-option>
+     </mat-select>
+   </mat-form-field>
+</div>
+<!--Third row of form.-->
+<div>
+ <mat-form-field class="mat-form-field" style="width:91%;"> <!-- Third row of the form. -->
+   <input matInput placeholder="Email" value={{user.email}}
+       [(ngModel)]="user.email" name="email" #name="ngModel" required>
+    <mat-error>This field is required</mat-error>
+ </mat-form-field>
+
+</div>
+<div>
+ <mat-form-field class="mat-form-field" style="width:45%; transform: perspective(1px);">
+  <input matInput placeholder="Modifying User" value="{{user.modifyingUser}}"
+        [(ngModel)]="user.modifyingUser" name="modifyingUser"
+        #modifyingUser="ngModel" required>
+ </mat-form-field>
+ <mat-form-field class="mat-form-field" style="width:45%; transform: perspective(1px);">
+   <input matInput placeholder="Date Modified"
+       value="{{ user.dateModified | date:'yyyy - MM - dd' }}">
+ </mat-form-field>
+</div>
+<div>
+ <mat-form-field class="mat-form-field" style="width:90%;">
+  <input matInput placeholder="Hash"
+    value={{user.hash}} readonly/>
+</mat-form-field>
+</div>
+<!--Main FxLayout Column.-->
+
+</div>

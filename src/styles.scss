@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import './custom-theme.scss';
+
+@mixin my-custom-theme($custom-theme) {
+  $primary: map-get($custom-theme, primary);
+  $warn: map-get($custom-theme, warn);
+  $background: map-get($custom-theme, accent);
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	background-color: #FAFAFA;
+	padding: 0;
+  margin: 0;
+}
+
+/** Styling for the main menu.**/
+.mat-menu-panel {
+  background-color: mat-color($background);
+}
+
+.mat-form-field-label{ color: black;}
+.mat-select-value{ color: black;}
+/** Style the mat-form-fields.**/
+.mat-input-underline {
+    background-color: mat-color($primary);
+}
+
+//Change font size of the material form fields
+.mat-input-flex {
+	font-size: 20px;
+}
